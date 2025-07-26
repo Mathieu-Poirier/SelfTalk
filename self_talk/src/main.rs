@@ -26,9 +26,11 @@ fn main() {
     let mut screen_metrics: ScreenMetrics = ScreenMetrics::new(INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT);
     text_box.update("Hello, world!".to_string(), &screen_metrics);
 
+    const BACKGROUND_COLOR: Color = Color::new(30, 30, 30, 255);
+
     while !ray_handle.window_should_close() {
         let mut draw_handle = ray_handle.begin_drawing(&init_thread);
-        draw_handle.clear_background(Color::new(30, 30, 30, 255));
+        draw_handle.clear_background(BACKGROUND_COLOR);
         
         // Update sizes when window is resized
         if screen_metrics.was_resized(draw_handle.get_screen_width(), draw_handle.get_screen_height()) {
